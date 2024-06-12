@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.makeramen.roundedimageview.RoundedImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_40sdp"
+    android:layout_height="@dimen/_40sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scaleType="centerCrop"
+    android:padding="@dimen/_4sdp"
+    android:id="@+id/kartIV"
+    android:layout_margin="@dimen/_5sdp"
+    app:riv_corner_radius="@dimen/_10sdp"
+    android:src="@drawable/holder_post" />

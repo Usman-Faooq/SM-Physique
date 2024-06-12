@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginVertical="@dimen/_6sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="#1C1C1C"
+    app:cardCornerRadius="@dimen/_15sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/kartIV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:padding="@dimen/_5sdp"
+            app:riv_corner_radius_top_left="@dimen/_15sdp"
+            app:riv_corner_radius_top_right="@dimen/_15sdp"
+            android:src="@drawable/equipment_holder"/>
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:text="Category Name"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

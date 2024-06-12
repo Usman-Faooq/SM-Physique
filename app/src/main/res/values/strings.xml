@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SM Physique</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="delivery_methods">
+
+        <item>Method 01</item>
+        <item>Method 02</item>
+        <item>Method 03</item>
+
+    </array>
+
+</resources>

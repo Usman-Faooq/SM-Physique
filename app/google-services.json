@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "535603059353",
+    "project_id": "sm-physique",
+    "storage_bucket": "sm-physique.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535603059353:android:0f103463e6e18c5c95f608",
+        "android_client_info": {
+          "package_name": "com.buzzwaretech.gymphysique"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf-mPnrWNxsoRlCVz1ck40ZTUKL4K1AHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

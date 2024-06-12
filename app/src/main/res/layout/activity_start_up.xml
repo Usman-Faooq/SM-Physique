@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/_14sdp"
+    android:background="@drawable/startup_bg"
+    tools:context=".activities.StartUpActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:gravity="center"
+        android:text="Workout That Get Better As You do"
+        android:textColor="#FFFFFFFF"
+        android:textSize="@dimen/_19sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:alpha="0.4"
+        android:fontFamily="@font/montserrat_light"
+        android:gravity="center"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        android:textColor="#FFFFFFFF"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/startTV"
+        tools:layout_editor_absoluteX="24dp" />
+
+
+    <TextView
+        android:id="@+id/startTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/light_yellow"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:padding="@dimen/_15sdp"
+        android:text="Get Started"
+        android:textColor="#FFFFFFFF"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@+id/singInTV" />
+
+    <TextView
+        android:id="@+id/singInTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:padding="@dimen/_15sdp"
+        android:text="Already have an account?"
+        android:textColor="#FFFFFFFF"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
