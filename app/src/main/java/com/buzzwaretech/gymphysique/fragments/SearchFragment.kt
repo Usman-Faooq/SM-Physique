@@ -38,6 +38,7 @@ class SearchFragment : BaseFragment(), HomeGridAdapter.OnItemClickListener {
 
         //binding.layout.titleTV.text = "Search"
 
+        setAdapter()
         getPosts()
         setView()
         setListener()
@@ -59,7 +60,10 @@ class SearchFragment : BaseFragment(), HomeGridAdapter.OnItemClickListener {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 val query = p0.toString().trim()
-                adapter.filter(query)
+
+                if (::adapter.isInitialized) {
+                    adapter.filter(query)
+                }
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -102,7 +106,10 @@ class SearchFragment : BaseFragment(), HomeGridAdapter.OnItemClickListener {
 
 
     private fun setAdapter() {
-        mDialog.dismiss()
+        if (mDialog.isShowing){
+            mDialog.dismiss()
+        }
+
         adapter = HomeGridAdapter(fragmentContext, postList, this, "otherProfile")
 
         binding.recyclerView.layoutManager = GridLayoutManager(fragmentContext, 3)

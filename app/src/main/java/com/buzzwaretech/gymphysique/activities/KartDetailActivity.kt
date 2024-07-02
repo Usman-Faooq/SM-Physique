@@ -21,6 +21,7 @@ import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.UUID
 
 class KartDetailActivity : BaseActivity(), KartMiniItemAdapter.OnItemClickListener {
 
@@ -160,8 +161,7 @@ class KartDetailActivity : BaseActivity(), KartMiniItemAdapter.OnItemClickListen
                                         val confirmParams = ConfirmPaymentIntentParams.create(key)
                                         stripe = Stripe(this@KartDetailActivity, Constants.stripePublishableKey)
                                         stripe.confirmPayment(this@KartDetailActivity, confirmParams)
-                                        //mDialog.show()
-                                        mDialog.dismiss()
+                                        placeOrder(price, key)
 
                                     }else{
                                         mDialog.dismiss()
@@ -189,6 +189,31 @@ class KartDetailActivity : BaseActivity(), KartMiniItemAdapter.OnItemClickListen
                 }
             }
         })
+    }
+
+    private fun placeOrder(price: String, pmId: String) {
+
+        val orderId = UUID.randomUUID().toString()
+        val map = mapOf(
+            "orderId" to orderId,
+            "itemId" to model.itemId,
+            "price" to model.price.toDouble(),
+            "pmId" to pmId,
+            "userId" to Constants.currentUser.userId,
+            "date" to System.currentTimeMillis(),
+            "status" to "pending"
+        )
+
+        db.collection("Orders").document(orderId)
+            .set(map).addOnSuccessListener {
+                mDialog.dismiss()
+                showSuccessMessage()
+                finish()
+            }.addOnFailureListener {
+                mDialog.dismiss()
+                showError(it.message.toString())
+            }
+
     }
 
     override fun onItemClick(selectedImage: String) {

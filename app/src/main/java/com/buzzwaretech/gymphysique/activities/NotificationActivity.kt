@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.buzzwaretech.gymphysique.adapters.NotificationAdapter
 import com.buzzwaretech.gymphysique.databinding.ActivityNotificationsBinding
@@ -78,19 +79,30 @@ class NotificationActivity : BaseActivity(), NotificationAdapter.OnItemClickList
             mDialog.show()
             val postId = model.extradata.getValue("postid").toString()
 
-            db.collection("Posts").document(postId)
-                .get().addOnSuccessListener {
-                    mDialog.dismiss()
-                    val postModel = it.toObject(PostModel::class.java)
-                    postModel!!.postId = it.id
-                    val intent = Intent(this, DetailActivity::class.java)
-                    intent.putExtra("postModel", postModel)
-                    startActivity(intent)
-                    overridePendingTransition(androidx.appcompat.R.anim.abc_fade_in, androidx.appcompat.R.anim.abc_fade_out)
+            if (postId.isNotEmpty()){
+                db.collection("Posts").document(postId)
+                    .get().addOnSuccessListener {
+                        mDialog.dismiss()
+                        if (it.exists()){
+                            val postModel = it.toObject(PostModel::class.java)
+                            postModel!!.postId = postId
+                            val intent = Intent(this, DetailActivity::class.java)
+                            intent.putExtra("postModel", postModel)
+                            startActivity(intent)
+                            overridePendingTransition(androidx.appcompat.R.anim.abc_fade_in, androidx.appcompat.R.anim.abc_fade_out)
+                        }else{
+                            Toast.makeText(this, "Document Not Exist", Toast.LENGTH_SHORT).show()
+                        }
 
-                }.addOnFailureListener {
-                    mDialog.dismiss()
-                }
+
+                    }.addOnFailureListener {
+                        mDialog.dismiss()
+                        Toast.makeText(this, "Fail: ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
+
+            }else{
+                Toast.makeText(this, "Null Id here", Toast.LENGTH_SHORT).show()
+            }
 
         }
 
